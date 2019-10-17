@@ -32,7 +32,67 @@ body{
     /* background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%); */
     background-color: #6c75f1;
     color: #fff;
+    cursor: pointer;
 }
-#task-detail #delete-alert{
-    visibility: hidden;
+#task-detail, #delete-alert{
+    /* visibility: hidden; */
+}
+.detail-container{
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50px; */
+    width: 480px;
+    height: 320px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 12px 3%;
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 8px;
+    /* opacity: 0; */
+}
+#task-title{
+    font-size: 18px;
+    text-align: left;
+    line-height: 24px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+#task-desc{
+    flex: 3 1 180px;
+    border: 1px solid #30cfd0;
+    line-height: 1.5em;
+    margin-bottom: 12px;
+}
+#task-date{
+    border: 1px solid #30cfd0;
+    margin-bottom: 12px;
+}
+#button-group{
+    flex: 0 0 35px;
+    text-align: center;
+}
+#confirm, #cancel, #delete-confirm, #delete-cancel{
+    cursor: pointer;
+    padding: 8px 48px;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+}
+#confirm, #delete-confirm{
+    background-color: #00cc66;
+}
+#cancel, #delete-cancel{
+    background-color: #cc6666;
+}
+.delete-container{
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50px; */
+    width: 298px;
+    height: 98px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 16px 12px;
+    text-align: center;
+    border-radius: 8px;
+    /* opacity: 0; */
 }
