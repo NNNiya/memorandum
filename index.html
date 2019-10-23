@@ -13,7 +13,7 @@
                 </header>
                 <section id="task-input">
                     <input type="text" name="content" id="input-content" placeholder="请输入要保存的内容">
-                    <button id="task-submit">保存</button>
+                    <button id="task-submit" onclick="save()">保存</button>
                 </section>
                 <section id="task-list">
                     <ul id="list-content">
@@ -46,5 +46,26 @@
                     <button id="delete-cancel">取消</button>
                 </div>
             </div> -->
+
+            <script>
+                function save(){
+                    var inputContent = document.getElementById("input-content");
+                    var listContent = document.getElementById("list-content");
+                    var title = inputContent.value;
+                    if(title !== ""){
+                        inputContent.setAttribute("placeholder", "请输入要保存的内容");
+                        var li = document.createElement("li");
+                        li.classList.add("task-item");
+                        li.innerHTML = '<span class="content">' + title + "</span>" + '<span class="edit"></span>' + '<span class="delete"></span>';
+                        listContent.insertBefore(li, listContent.firstElementChild);
+                        inputContent.value = "";
+                        return li;
+                    } else {
+                        inputContent.setAttribute("placeholder", "内容为空，请重新输入");
+                    }
+                    
+                }
+
+            </script>
         </body>
 </html>

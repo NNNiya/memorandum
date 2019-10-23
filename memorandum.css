@@ -15,6 +15,9 @@ body{
     letter-spacing: 2px;
     padding-left: 2px;
 }
+
+
+/* task-input */
 #task-input{
     height: 36px;
     display: flex;
@@ -34,8 +37,11 @@ body{
     color: #fff;
     cursor: pointer;
 }
+
+
+/* task-detail  delete-alert*/
 #task-detail, #delete-alert{
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 .detail-container{
     /* position: absolute; */
@@ -95,4 +101,42 @@ body{
     text-align: center;
     border-radius: 8px;
     /* opacity: 0; */
+}
+
+
+
+/* task-list */
+#task-list{
+    width: 100%;
+    font-size: 16px;
+}
+#list-content{
+    margin: 0;
+    padding: 0;
+}
+.task-item{
+    padding: 0 72px 0 12px;
+    border-radius: 4px;
+    background-color: #fff;
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* position: relative; */
+
+}
+.delete{
+    right: -24px;
+    background-image: url(C:\projects\memorandum\images\delete.png);
+}
+.edit{
+    right: -28px;
+    background-image: url(C:\projects\memorandum\images\edit.png);
+}
+.delete, .edit{
+    position: absolute;
+    width: 24px;
+    height: 24px;
 }
