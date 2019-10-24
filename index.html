@@ -53,14 +53,16 @@
                     var listContent = document.getElementById("list-content");
                     var title = inputContent.value;
                     if(title !== ""){
+                        inputContent.classList.remove("invalid");
                         inputContent.setAttribute("placeholder", "请输入要保存的内容");
                         var li = document.createElement("li");
                         li.classList.add("task-item");
-                        li.innerHTML = '<span class="content">' + title + "</span>" + '<span class="edit"></span>' + '<span class="delete"></span>';
+                        li.innerHTML = '<span class="content">' + title + '</span>' + '<span class="edit"></span>' + '<span class="delete"></span>';
                         listContent.insertBefore(li, listContent.firstElementChild);
                         inputContent.value = "";
                         return li;
                     } else {
+                        inputContent.classList.add("invalid");
                         inputContent.setAttribute("placeholder", "内容为空，请重新输入");
                     }
                     

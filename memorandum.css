@@ -30,6 +30,9 @@ body{
     flex: auto;
     padding: 4px 12px;
 }
+.invalid::-webkit-input-placeholder{
+    color: #f33;
+}
 #task-submit{
     flex: 0 0 72px;
     /* background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%); */
@@ -129,11 +132,11 @@ body{
 }
 .delete{
     right: -24px;
-    background-image: url(C:\projects\memorandum\images\delete.png);
+    background-image: url('./images/delete.png');
 }
 .edit{
     right: -28px;
-    background-image: url(C:\projects\memorandum\images\edit.png);
+    background-image: url('./images/edit.png');
 }
 .delete, .edit{
     position: absolute;
