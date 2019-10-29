@@ -47,9 +47,9 @@ body{
     visibility: hidden;
 }
 .detail-container{
-    /* position: absolute; */
-    /* top: 50%;
-    left: 50px; */
+    position: absolute; 
+    top: 50%;
+    left: 50%;
     width: 480px;
     height: 320px;
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
@@ -57,7 +57,29 @@ body{
     display: flex;
     flex-flow: column nowrap;
     border-radius: 8px;
-    /* opacity: 0; */
+    opacity: 0;
+}
+.delete-container{
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    width: 298px;
+    height: 98px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 16px 12px;
+    text-align: center;
+    border-radius: 8px;
+    opacity: 0;
+}
+aside#task-detail.show,
+#delete-alert.show {
+	visibility: visible;
+	background-color: rgba(0,0,0,.5);
+}
+aside#task-detail.show .detail-container,
+#delete-alert.show .delete-container {
+	opacity: 1;
+	transform: translate(-50%, -50%);
 }
 #task-title{
     font-size: 18px;
@@ -65,6 +87,8 @@ body{
     line-height: 24px;
     margin-bottom: 12px;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 #task-desc{
     flex: 3 1 180px;
@@ -93,18 +117,7 @@ body{
 #cancel, #delete-cancel{
     background-color: #cc6666;
 }
-.delete-container{
-    /* position: absolute; */
-    /* top: 50%;
-    left: 50px; */
-    width: 298px;
-    height: 98px;
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-    padding: 16px 12px;
-    text-align: center;
-    border-radius: 8px;
-    /* opacity: 0; */
-}
+
 
 
 
@@ -127,7 +140,7 @@ body{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    /* position: relative; */
+    position: relative;
 
 }
 .delete{
@@ -142,4 +155,15 @@ body{
     position: absolute;
     width: 24px;
     height: 24px;
+    top: 6px;
+    cursor: pointer;
+}
+.task-item:hover {
+	background-color: #eee;
+}
+.task-item:hover > .delete {
+	right: 12px;
+}
+.task-item:hover > .edit {
+	right: 42px;
 }

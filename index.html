@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="memorandum.css">
-        <script src="C:\Users\lyw\jquery-3.4.1.js"></script>
-        <script src="memorandum.js"></script>
     </head>
     <body>
             <article id="task-container">
@@ -13,7 +11,7 @@
                 </header>
                 <section id="task-input">
                     <input type="text" name="content" id="input-content" placeholder="请输入要保存的内容">
-                    <button id="task-submit" onclick="save()">保存</button>
+                    <button id="task-submit" onclick="saveNote()">保存</button>
                 </section>
                 <section id="task-list">
                     <ul id="list-content">
@@ -25,49 +23,19 @@
                         <textarea id="task-desc"  placeholder="添加描述信息"></textarea>
                         <input type="date" name="date" id="task-date">
                         <div id="button-group">
-                            <button id="confirm">确认</button>
-                            <button id="cancel">取消</button>
+                            <button id="confirm" onclick="editConfirm()">确认</button>
+                            <button id="cancel" onclick="editCancel()">取消</button>
                         </div>
                     </div>
                 </aside>
                 <div id="delete-alert">
                     <div class="delete-container">
                         <p>确认删除？</p>
-                        <button id="delete-confirm">确认</button>
-                        <button id="delete-cancel">取消</button>
+                        <button id="delete-confirm" onclick="deleteConfirm()">确认</button>
+                        <button id="delete-cancel" onclick="deleteCancel()">取消</button>
                     </div>
                 </div>
             </article>
-    
-            <!-- <div id="delete-alert">
-                <div class="delete-container">
-                    <p>确认删除？</p>
-                    <button id="delete-confirm">确认</button>
-                    <button id="delete-cancel">取消</button>
-                </div>
-            </div> -->
-
-            <script>
-                function save(){
-                    var inputContent = document.getElementById("input-content");
-                    var listContent = document.getElementById("list-content");
-                    var title = inputContent.value;
-                    if(title !== ""){
-                        inputContent.classList.remove("invalid");
-                        inputContent.setAttribute("placeholder", "请输入要保存的内容");
-                        var li = document.createElement("li");
-                        li.classList.add("task-item");
-                        li.innerHTML = '<span class="content">' + title + '</span>' + '<span class="edit"></span>' + '<span class="delete"></span>';
-                        listContent.insertBefore(li, listContent.firstElementChild);
-                        inputContent.value = "";
-                        return li;
-                    } else {
-                        inputContent.classList.add("invalid");
-                        inputContent.setAttribute("placeholder", "内容为空，请重新输入");
-                    }
-                    
-                }
-
-            </script>
+            <script src="memorandum.js"></script>
         </body>
 </html>
