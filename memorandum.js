@@ -24,28 +24,46 @@ function getNoteById(id) {
 function saveNoteById(id, note) {
     localStorage.setItem(id, JSON.stringify(note));
 }
+function getKeysArray(){
+    var keysArray = localStorage.getItem("noteKeysArray");
+    if (!keysArray) {
+        keysArray = [];
+        localStorage.setItem("noteKeysArray", keysArray);
+    } else {
+        keysArray = JSON.parse(keysArray);
+    }
+    return keysArray;
+}
 
-function showNote(notekey){
-    var note = getNoteById(notekey);
+function showNote(noteKey){
+    var note = getNoteById(noteKey);
     var title = note.title;
-    var inputContent = document.getElementById("input-content");
     var listContent = document.getElementById("list-content");
     var li = document.createElement("li");
-    li.setAttribute("id", notekey)
+    li.setAttribute("id", noteKey)
     li.classList.add("task-item");
     li.innerHTML = '<span class="content">' + title + '</span>' + '<span class="edit" onclick="editNote(this)"></span>' + '<span class="delete" onclick="deleteNote(this)"></span>';
     listContent.insertBefore(li, listContent.firstElementChild);  
-    inputContent.value = "";
-    return li;
+}
+function showAllNotes() {
+    var keysArray = getKeysArray(); 
+    var noteKey;
+    for(var i = 0; i < keysArray.length; i++) {
+        noteKey = keysArray[i];
+        showNote(noteKey);
+    };
 }
 
 function saveNote(title, desc){
     var note = new Note(title, desc);
     noteKey = "note_" + new Date().getTime();
+    var keysArray = getKeysArray();
+    keysArray.push(noteKey);
+	localStorage.setItem("noteKeysArray", JSON.stringify(keysArray));
     localStorage.setItem(noteKey, JSON.stringify(note));
-    var li = showNote(noteKey);
+    showNote(noteKey);
 }
-function showAll(){
+function save(){
     var inputContent = document.getElementById("input-content");
     var title = inputContent.value;
     if(title !== ""){
@@ -73,12 +91,21 @@ function deleteConfirm(){
     noteSelected.parentNode.removeChild(noteSelected);
     var deleteAlert = document.getElementById("delete-alert");
     deleteAlert.classList.remove("show");
+    var noteKey = noteSelected.id;
+    var keysArray = getKeysArray();
+    localStorage.removeItem(noteKey);
+    for(var i = 0; i < keysArray.length; i++){
+        if (keysArray[i] == noteKey) {
+            keysArray.splice(i, 1);
+        }
+    };
+    localStorage.setItem("noteKeysArray", JSON.stringify(keysArray));
 };
 
 function editNote(obj){
     noteSelected = obj.parentNode;
-    var notekey = noteSelected.id;
-    var note = getNoteById(notekey);
+    var noteKey = noteSelected.id;
+    var note = getNoteById(noteKey);
     var taskDetail= document.getElementById("task-detail");
     taskDetail.classList.add("show");
     var detailDesc = document.getElementById("task-desc");
@@ -97,13 +124,13 @@ function editConfirm(){
     var detaiTitle = document.getElementById("task-title");
     var detailDate = document.getElementById("task-date");
     var detailDesc = document.getElementById("task-desc");
-    var notekey = noteSelected.id;
-    var note = getNoteById(notekey);
+    var noteKey = noteSelected.id;
+    var note = getNoteById(noteKey);
     note.title = detaiTitle.innerHTML;
     noteSelected.childNodes[0].innerHTML = detaiTitle.innerHTML;
     note.date = detailDate.value;
     note.desc = detailDesc.value;
-    saveNoteById(notekey, note);
+    saveNoteById(noteKey, note);
 
     var taskDetail= document.getElementById("task-detail");
     taskDetail.classList.remove("show");  
