@@ -35,16 +35,25 @@ body{
 }
 #task-submit{
     flex: 0 0 72px;
-    /* background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%); */
     background-color: #6c75f1;
     color: #fff;
     cursor: pointer;
+}
+#task-submit:hover{
+    background-color: #565fdd;
 }
 
 
 /* task-detail  delete-alert*/
 #task-detail, #delete-alert{
+    top: 0; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
     visibility: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all .3s;
 }
 .detail-container{
     position: absolute; 
@@ -58,6 +67,8 @@ body{
     flex-flow: column nowrap;
     border-radius: 8px;
     opacity: 0;
+    transition: all .5s;
+    transform: translate(-50%, -100%);
 }
 .delete-container{
     position: absolute; 
@@ -70,6 +81,8 @@ body{
     text-align: center;
     border-radius: 8px;
     opacity: 0;
+    transition: all .5s;
+    transform: translate(-50%, -100%);
 }
 aside#task-detail.show,
 #delete-alert.show {
@@ -86,9 +99,9 @@ aside#task-detail.show .detail-container,
     text-align: left;
     line-height: 24px;
     margin-bottom: 12px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
 }
 #task-desc{
     flex: 3 1 180px;
@@ -157,6 +170,7 @@ aside#task-detail.show .detail-container,
     height: 24px;
     top: 6px;
     cursor: pointer;
+    transition: all .5s;
 }
 .task-item:hover {
 	background-color: #eee;
