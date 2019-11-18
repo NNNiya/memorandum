@@ -10,7 +10,7 @@
                     <h1>备忘录</h1>
                 </header>
                 <section id="task-input">
-                    <input type="text" name="content" id="input-content" placeholder="请输入要保存的内容">
+                    <input type="text" name="content" id="input-content" placeholder="请输入要保存的内容" onkeydown="keyEnter()">
                     <button id="task-submit" onclick="save()">保存</button>
                 </section>
                 <section id="task-list">

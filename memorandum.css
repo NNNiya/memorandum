@@ -1,5 +1,6 @@
 body{
-    background-image: linear-gradient(135deg,#FFA6B7,#1E2AD2); 
+    background-image: url('./images/1.jpg');
+    /* background-image: linear-gradient(135deg,#FFA6B7,#1E2AD2);  */
     background-attachment: fixed;
 }
 #task-container{
@@ -25,11 +26,15 @@ body{
     width: 100%;
     font-size: 16px;
     margin-bottom: 16px;
+   
 }
 #input-content{
     flex: auto;
     padding: 4px 12px;
+    border-radius: 3px;
+    border: 1px solid #65a6d1;
 }
+
 .invalid::-webkit-input-placeholder{
     color: #f33;
 }
@@ -38,6 +43,8 @@ body{
     background-color: #6c75f1;
     color: #fff;
     cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #65a6d1;
 }
 #task-submit:hover{
     background-color: #565fdd;
@@ -145,7 +152,7 @@ aside#task-detail.show .detail-container,
 }
 .task-item{
     padding: 0 72px 0 12px;
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: #fff;
     height: 36px;
     line-height: 36px;
@@ -154,6 +161,7 @@ aside#task-detail.show .detail-container,
     white-space: nowrap;
     text-overflow: ellipsis;
     position: relative;
+    border: 1px solid #65a6d1;
 
 }
 .delete{
@@ -181,3 +189,66 @@ aside#task-detail.show .detail-container,
 .task-item:hover > .edit {
 	right: 42px;
 }
+
+@-webkit-keyframes swing {
+    20% {
+      -webkit-transform: rotate3d(0, 0, 1, 15deg);
+      transform: rotate3d(0, 0, 1, 15deg);
+    }
+  
+    40% {
+      -webkit-transform: rotate3d(0, 0, 1, -10deg);
+      transform: rotate3d(0, 0, 1, -10deg);
+    }
+  
+    60% {
+      -webkit-transform: rotate3d(0, 0, 1, 5deg);
+      transform: rotate3d(0, 0, 1, 5deg);
+    }
+  
+    80% {
+      -webkit-transform: rotate3d(0, 0, 1, -5deg);
+      transform: rotate3d(0, 0, 1, -5deg);
+    }
+  
+    to {
+      -webkit-transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  }
+  
+  @keyframes swing {
+    20% {
+      -webkit-transform: rotate3d(0, 0, 1, 15deg);
+      transform: rotate3d(0, 0, 1, 15deg);
+    }
+  
+    40% {
+      -webkit-transform: rotate3d(0, 0, 1, -10deg);
+      transform: rotate3d(0, 0, 1, -10deg);
+    }
+  
+    60% {
+      -webkit-transform: rotate3d(0, 0, 1, 5deg);
+      transform: rotate3d(0, 0, 1, 5deg);
+    }
+  
+    80% {
+      -webkit-transform: rotate3d(0, 0, 1, -5deg);
+      transform: rotate3d(0, 0, 1, -5deg);
+    }
+  
+    to {
+      -webkit-transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  }
+  
+  .swing {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+    -webkit-animation-name: swing;
+    animation-name: swing;
+  }

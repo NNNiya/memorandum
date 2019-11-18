@@ -40,8 +40,9 @@ function showNote(noteKey){
     var title = note.title;
     var listContent = document.getElementById("list-content");
     var li = document.createElement("li");
-    li.setAttribute("id", noteKey)
+    li.setAttribute("id", noteKey);
     li.classList.add("task-item");
+    li.classList.add("animated", "swing");
     li.innerHTML = '<span class="content">' + title + '</span>' + '<span class="edit" onclick="editNote(this)"></span>' + '<span class="delete" onclick="deleteNote(this)"></span>';
     listContent.insertBefore(li, listContent.firstElementChild);  
 }
@@ -134,4 +135,10 @@ function editConfirm(){
 
     var taskDetail= document.getElementById("task-detail");
     taskDetail.classList.remove("show");  
+}
+
+function keyEnter(){
+    if(window.event.keyCode == 13){
+        document.getElementById("task-submit").click();
+    }
 }
