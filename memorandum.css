@@ -1,5 +1,5 @@
 body{
-    background-image: url('./images/1.jpg');
+    background-image: url('./images/bg.jpg');
     /* background-image: linear-gradient(135deg,#FFA6B7,#1E2AD2);  */
     background-attachment: fixed;
 }
